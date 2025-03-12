@@ -332,10 +332,7 @@ function Deposit() {
     const ctx = useContext(UserContext);
 
     const [activeUser, setActiveUser] = useState(() => {
-        let storedUser = JSON.parse(localStorage.getItem("loggedInUser"));
-        if (!storedUser) {
-            storedUser = { email: "", balance: 0 };
-        }
+        let storedUser = JSON.parse(localStorage.getItem("loggedInUser")) || { email: "", balance: 0 };
         return storedUser;
     });
 
@@ -346,10 +343,14 @@ function Deposit() {
 
             if (existingUser) {
                 setActiveUser(existingUser);
+            } else {
+                const newUser = { email: activeUser.email, balance: 0 };
+                setActiveUser(newUser);
+                localStorage.setItem("users", JSON.stringify([...storedUsers, newUser]));
             }
 
             const history = JSON.parse(localStorage.getItem(`depositHistory_${activeUser.email}`)) || [];
-            setDepositHistory(history);
+            setDepositHistory(Array.isArray(history) ? history : []);
         }
     }, [activeUser.email]);
 
@@ -365,15 +366,14 @@ function Deposit() {
             return;
         }
 
-        const updatedBalance = (activeUser.balance || 0) + amount;
+        const updatedBalance = activeUser.balance + amount;
         const updatedUser = { ...activeUser, balance: updatedBalance };
-
         localStorage.setItem("loggedInUser", JSON.stringify(updatedUser));
         setActiveUser(updatedUser);
         ctx.setActiveUser(updatedUser);
 
         const users = JSON.parse(localStorage.getItem("users")) || [];
-        const updatedUsers = users.map(user => (user.email === activeUser.email ? updatedUser : user));
+        const updatedUsers = users.map(user => user.email === activeUser.email ? updatedUser : user);
         localStorage.setItem("users", JSON.stringify(updatedUsers));
 
         const newHistoryEntry = { amount, time: new Date().toLocaleString() };
@@ -417,117 +417,77 @@ function Deposit() {
 }
 
 const styles = {
-        container: {
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            minHeight: "100vh",
-            backgroundImage: `url('https://media.tenor.com/S-TdSjRmKYcAAAAj/piggy-bank-crypto.gif')`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            position: "relative",
-        },
-        overlay: {
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.4)",
-            backdropFilter: "blur(3px)",
-        },
-        card: {
-            position: "relative",
-            background: "rgba(255, 255, 255, 0.9)",
-            padding: "25px",
-            borderRadius: "12px",
-            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
-            width: "350px",
-            textAlign: "center",
-            zIndex: 1,
-        },
-        title: {
-            fontSize: "22px",
-            marginBottom: "10px",
-            fontWeight: "bold",
-        },
-        balance: {
-            fontWeight: "bold",
-            fontSize: "18px",
-        },
-        label: {
-            marginBottom: "5px",
-            fontSize: "14px",
-            color: "#666",
-        },
-        input: {
-            width: "100%",
-            padding: "10px",
-            marginBottom: "10px",
-            borderRadius: "6px",
-            border: "1px solid #ccc",
-            textAlign: "center",
-            fontSize: "16px",
-        },
-        button: {
-            backgroundColor: "#007bff",
-            color: "white",
-            padding: "10px",
-            width: "100%",
-            borderRadius: "6px",
-            border: "none",
-            cursor: "pointer",
-            fontSize: "16px",
-            fontWeight: "bold",
-        },
-        historyTitle: {
-            marginTop: "20px",
-            fontSize: "18px",
-        },
-        historyContainer: {
-            maxHeight: "200px",
-            overflowY: "auto",
-            padding: "5px",
-            textAlign: "left",
-        },
-        historyEntry: {
-            padding: "8px",
-            borderBottom: "1px solid #ddd",
-        },
-        historyAmount: {
-            color: "green",
-            fontSize: "16px",
-            margin: "5px 0",
-        },
-        historyTime: {
-            fontSize: "12px",
-            color: "#666",
-        },
-        noHistory: {
-            fontSize: "14px",
-            color: "#888",
-        },
-        popup: {
-            position: "fixed",
-            top: "10px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            background: "#28a745",
-            color: "white",
-            padding: "10px 20px",
-            borderRadius: "6px",
-            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-            zIndex: 1000,
-        },
-        footer: {
-            position: "absolute",
-            bottom: "0",
-            width: "100%",
-            textAlign: "center",
-            backgroundColor: "rgba(0, 0, 0, 0.7)",
-            color: "white",
-            padding: "10px 0",
-        }
-    };
+    container: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+        backgroundImage: `url('https://media.tenor.com/S-TdSjRmKYcAAAAj/piggy-bank-crypto.gif')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        position: "relative",
+    },
+    card: {
+        position: "relative",
+        background: "rgba(255, 255, 255, 0.9)",
+        padding: "25px",
+        borderRadius: "12px",
+        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
+        width: "350px",
+        textAlign: "center",
+        zIndex: 1,
+    },
+    title: {
+        fontSize: "22px",
+        marginBottom: "10px",
+        fontWeight: "bold",
+    },
+    balance: {
+        fontWeight: "bold",
+        fontSize: "18px",
+    },
+    input: {
+        width: "100%",
+        padding: "10px",
+        marginBottom: "10px",
+        borderRadius: "6px",
+        border: "1px solid #ccc",
+        textAlign: "center",
+        fontSize: "16px",
+    },
+    button: {
+        backgroundColor: "#007bff",
+        color: "white",
+        padding: "10px",
+        width: "100%",
+        borderRadius: "6px",
+        border: "none",
+        cursor: "pointer",
+        fontSize: "16px",
+        fontWeight: "bold",
+    },
+    historyTitle: {
+        marginTop: "20px",
+        fontSize: "18px",
+    },
+    noHistory: {
+        fontSize: "14px",
+        color: "#888",
+    },
+    popup: {
+        position: "fixed",
+        top: "10px",
+        left: "50%",
+        transform: "translateX(-50%)",
+        background: "#28a745",
+        color: "white",
+        padding: "10px 20px",
+        borderRadius: "6px",
+        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+        zIndex: 1000,
+    }
+};
 
 export default Deposit;
 
