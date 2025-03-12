@@ -1,0 +1,106 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap'); */
+
+.admin-dashboard {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    /* background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGc0OXdqZjd4cHhlZ3NrY2R4MW4zM3pmMnV3Z2MyM3VsYTk3Mm0wZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1AHZBEKJx5Mf57NQqb/giphy.gif') no-repeat center center/cover; */
+    /* background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmR4azB3bW9lem0wdndhcXg5bDcyZmg3b3JuNjd3cGhxMmYzejNkMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xYEYXCt93QZTP5adXQ/giphy.gif') no-repeat center center/cover; */
+    /* background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmR4azB3bW9lem0wdndhcXg5bDcyZmg3b3JuNjd3cGhxMmYzejNkMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xYEYXCt93QZTP5adXQ/giphy.gif') no-repeat center center/cover; */
+    /* background: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnpzNmFzbnNvY2syZTg2MG9hMGNvd2ZpYXBneDVuMDdjeTB3MGw3YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/W9ncJSZLi36PC/giphy.gif') no-repeat center center/cover; */
+    /* background: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGh0b2gzMGM5NXViNWRscTJvMHJwbDJrOHNteWExNGhkcWxoODhwNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cJFQJzZxFMhONxDTnt/giphy.gif') no-repeat center center/cover; */
+    /* background: url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2V0N21uYnlmYzIyOW44eXYxeXZwamNmNWtlcjR3dTE1cDk0bHhqZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NyniJ2Nf2ZzlE8GYsl/giphy.gif') no-repeat center center/cover; */
+    /* background: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2dkdzBsZHZwaGF2YWNyYXVvMWNvN3hhM3dtOXdnbzRkdXlybmh6eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Pxj2KTQfem75GWBxjo/giphy.gif') no-repeat center center/cover; */
+    /* background: url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3UyZDVjZTdsdXA4dno1c3BleDdkaWxzamFoYWI3aHN3endxNzZkNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/b9VhM0ZMjUVMYn8OYx/giphy.gif') no-repeat center center/cover; */
+    /* background: url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2hvY21uYWpuemRhcHVvMzl1aHRtcDhkdnNycTVkMHN0Z29xbXgxdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vdpRNviw5twgvSRwhA/giphy.gif') no-repeat center center/cover; */
+    /* background: url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2traDR4OGJrYW9ncjkzaXAzYWZnY2N6c2VpYjJoejB2cGJraTVzNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RKJJopuGxCYiOSHvsE/giphy.gif') no-repeat center center/cover; */
+    /* background: url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzBvaWNtbGlxaHQyZnV0N3huYmYwNm80MTFhM3UyeGthZ2Y4OTA4bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/zJt3HFgP1TBFD229oy/giphy.gif') no-repeat center center/cover; */
+    /* background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGl2ZzQzcXJwNzNvNjJ3eXEzaXZzcGw3bWp5eG95ZTg1dmNpdzA0YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Ylf4lbEzozfCy7Zne1/giphy.gif') no-repeat center center/cover; */
+    /* background:  url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExanF1aTI3NmM3aGc3MHJvdGhxdGU2dTdzajl4eWxtZ3Z1YTYwMHgzbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/EHdARvkNYSuBy/giphy.gif') no-repeat center center/cover; */
+    background:  url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2UydmZlOXVoMmI4eWg1MHRhZW82eTF5aXA3aHZ0cHNuaG1qZXhxMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/jpvQS3yBRAzwA/giphy.gif') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    backdrop-filter: blur(6px);
+}
+
+/* Header */
+.dashboard-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-header h1 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* Logout Button */
+.logout-btn {
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background: linear-gradient(45deg, #ff4b2b, #ff416c);
+    transform: scale(1.1);
+}
+
+/* Table Container */
+.table-container {
+    width: 90%;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Table */
+.table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    color: white;
+}
+
+.table thead {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+.table tbody tr {
+    background: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+.table tbody tr:hover {
+    background: rgba(0, 255, 255, 0.4);
+    transform: scale(1.02);
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
